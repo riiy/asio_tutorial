@@ -22,8 +22,10 @@ int main()
 
   asio::steady_timer t(io, asio::chrono::seconds(5));
   t.async_wait(&print);
+  std::cout << "Hello, world 1!" << std::endl;
 
   io.run();
 
+  std::cout << "Hello, world 2!" << std::endl;
   return 0;
 }
