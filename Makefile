@@ -10,7 +10,7 @@ ZLIB_SUPPORT = -DCPPHTTPLIB_ZLIB_SUPPORT -lz
 
 BROTLI_DIR = $(PREFIX)/opt/brotli
 BROTLI_SUPPORT = -DCPPHTTPLIB_BROTLI_SUPPORT -I$(BROTLI_DIR)/include -L$(BROTLI_DIR)/lib -lbrotlicommon -lbrotlienc -lbrotlidec
-all: t1 t2 t3
+all: t1 t2 t3 t4
 
 timer1 : timer1.cpp
 	$(CXX) -o timer1.out $(CXXFLAGS) timer1.cpp
@@ -27,5 +27,9 @@ timer3 : timer3.cpp
 t3 : timer3
 	./timer3.out
 
+timer4 : timer4.cpp
+	$(CXX) -o timer4.out $(CXXFLAGS) timer4.cpp
+t4 : timer4
+	./timer4.out
 # client : client.cc ../httplib.h Makefile
 # 	$(CXX) -o client $(CXXFLAGS) client.cc $(OPENSSL_SUPPORT) $(ZLIB_SUPPORT) $(BROTLI_SUPPORT)
