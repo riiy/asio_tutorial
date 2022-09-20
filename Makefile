@@ -1,5 +1,5 @@
 CXX = clang++
-CXXFLAGS = -O2 -std=c++17 -Wall -Wextra -pthread
+CXXFLAGS = -O2 -std=c++17 -Wall -Wextra -pthread -stdlib=libc++
 
 PREFIX = /usr/local
 
@@ -10,7 +10,7 @@ ZLIB_SUPPORT = -DCPPHTTPLIB_ZLIB_SUPPORT -lz
 
 BROTLI_DIR = $(PREFIX)/opt/brotli
 BROTLI_SUPPORT = -DCPPHTTPLIB_BROTLI_SUPPORT -I$(BROTLI_DIR)/include -L$(BROTLI_DIR)/lib -lbrotlicommon -lbrotlienc -lbrotlidec
-all: t1 t2 t3 t4
+all: t1 t2 t3 t4 t5
 
 timer1 : timer1.cpp
 	$(CXX) -o timer1.out $(CXXFLAGS) timer1.cpp
@@ -31,5 +31,9 @@ timer4 : timer4.cpp
 	$(CXX) -o timer4.out $(CXXFLAGS) timer4.cpp
 t4 : timer4
 	./timer4.out
-# client : client.cc ../httplib.h Makefile
-# 	$(CXX) -o client $(CXXFLAGS) client.cc $(OPENSSL_SUPPORT) $(ZLIB_SUPPORT) $(BROTLI_SUPPORT)
+timer5 : timer5.cpp
+	$(CXX) -o timer5.out $(CXXFLAGS) timer5.cpp
+t5 : timer5
+	./timer5.out
+clean:
+	rm -rf *.out
