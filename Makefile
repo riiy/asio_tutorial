@@ -32,7 +32,7 @@ timer4 : timer4.cpp
 t4 : timer4
 	./timer4.out
 timer5 : timer5.cpp
-	$(CXX) -o timer5.out $(CXXFLAGS) timer5.cpp
+	$(CXX) -o timer5.out $(CXXFLAGS) timer5.cpp -lboost_thread
 t5 : timer5
 	./timer5.out
 clean:
