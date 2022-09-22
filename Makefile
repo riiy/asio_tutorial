@@ -35,5 +35,17 @@ timer5 : timer5.cpp
 	$(CXX) -o timer5.out $(CXXFLAGS) timer5.cpp -lboost_thread
 t5 : timer5
 	./timer5.out
+
+daytime_server : daytime_server.cpp
+	$(CXX) -o daytime_server.out $(CXXFLAGS) daytime_server.cpp -lboost_thread
+ds : daytime_server
+	./daytime_server.out &
+
+daytime_client : daytime_client.cpp
+	$(CXX) -o daytime_client.out $(CXXFLAGS) daytime_client.cpp -lboost_thread
+
+dc : ds daytime_client
+	./daytime_client.out localhost
+
 clean:
 	rm -rf *.out
