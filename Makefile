@@ -40,6 +40,10 @@ daytime_server : daytime_server.cpp
 	$(CXX) -o daytime_server.out $(CXXFLAGS) daytime_server.cpp -lboost_thread
 ds : daytime_server
 	./daytime_server.out &
+daytime_server_async : daytime_server_async.cpp
+	$(CXX) -o daytime_server_async.out $(CXXFLAGS) daytime_server_async.cpp -lboost_thread
+dsa : daytime_server_async
+	./daytime_server_async.out &
 
 daytime_client : daytime_client.cpp
 	$(CXX) -o daytime_client.out $(CXXFLAGS) daytime_client.cpp -lboost_thread
